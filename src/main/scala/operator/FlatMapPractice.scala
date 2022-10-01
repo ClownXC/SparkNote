@@ -25,12 +25,12 @@ object FlatMapPractice {
     val wordRDD: RDD[Object] = numRDD.flatMap(_.split(" "))
     wordRDD.collect().foreach(println)
 
-    val value: RDD[List[Int]] = sparkContext.makeRDD(List(
-      List(3, 4),
-      3,
-      List(5, 6)
-    ))
-
+//    val value: RDD[List[Int]] = sparkContext.makeRDD(List(
+//      List(3, 4),
+//      3,
+//      List(5, 6)
+//    ))
+//
 
 
 
