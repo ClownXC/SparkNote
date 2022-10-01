@@ -4,7 +4,7 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
- * @Name TransformPractice
+ * @Name MapPractice
  * @Description TODO
  * @Author joker
  * @Date 2022/10/1 00:06
