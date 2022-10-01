@@ -10,7 +10,7 @@ import org.apache.spark.{SparkConf, SparkContext}
  * @Date 2022/10/1 00:06
  * @Version 1.0
  * */
-object TransformPractice {
+object MapPractice {
   def main(args: Array[String]): Unit = {
 
     val sparkConf: SparkConf = new SparkConf().setMaster("local").setAppName("TransformPractice")
@@ -25,7 +25,7 @@ object TransformPractice {
 //    val value: RDD[Int] = fileRDD.map(num => num * 2)
     val value: RDD[Int] = fileRDD.map(_ * 2)
 
-    
+
 
     value.collect().foreach(println)
 

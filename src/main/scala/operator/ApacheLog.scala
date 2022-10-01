@@ -27,11 +27,28 @@ object ApacheLog {
 
     println("--------------------" * 10)
 
-    val urlRDD2: RDD[String] = logRDD.mapPartitions(line => {
+    val urlRDD2: RDD[String] = logRDD.mapPartitions(partition => {
       println(">>>>>>>>>>>>>>>>  ")
-      line.map(_.split(" ")(6))
+      partition.map(_.split(" ")(6))
     })
     urlRDD2.collect().foreach(println)
+
+    println("--------------------" * 10)
+
+    val urlRDD3: RDD[String] =logRDD.mapPartitionsWithIndex((index, partition) => {
+      if(index == 1){
+        partition
+      }else{
+        Nil.iterator
+      }
+    })
+    urlRDD3.collect().foreach(println)
+
+
+    val urlRDD5: RDD[(Int, String)] = logRDD.mapPartitionsWithIndex((index, partition) => {
+      partition.map(line => (index, line.split(" ")(3)))
+    })
+    urlRDD5.collect().foreach(println)
 
 
 
