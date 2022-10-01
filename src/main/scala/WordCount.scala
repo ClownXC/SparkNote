@@ -14,7 +14,10 @@ object WordCount {
     val sparkConf: SparkConf = new SparkConf().setMaster("local").setAppName("WordCount")
     val sparkContext: SparkContext = new SparkContext(sparkConf)
 
-    val fileRDD: RDD[String] = sparkContext.textFile("data/wordcount.txt")
+    val fileRDD: RDD[String] = sparkContext.textFile("data/wordcount.txt", 3)
+//    val value = sparkContext.wholeTextFiles("data")
+//    value.foreach(println)
+
     val wordRDD: RDD[String] = fileRDD.flatMap(_.split(" "))
     val word2OneRDD: RDD[(String, Int)] = wordRDD.map((_, 1))
     val word2CountRDD: RDD[(String, Int)] = word2OneRDD.reduceByKey(_ + _)
