@@ -7,7 +7,7 @@ import org.apache.spark.{SparkConf, SparkContext}
  * @Name FlatMapPractice
  * @Description TODO
  * @Author joker
- * @Date 2022/10/1 10:21
+ * @Date 2021/10/1 10:21
  * @Version 1.0
  * */
 object FlatMapPractice {
